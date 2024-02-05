@@ -22,6 +22,16 @@ export interface AppPayload {
     payloads: AppPayload[],
     events: string[]
   }
+
+  export function getEmptyAction(): AppAction {
+    return {
+      key: '',
+      title: '',
+      name: '',
+      payloads: [],
+      events: [],
+    }
+  }
   
   export const actions = ref<AppAction[]>([
     {

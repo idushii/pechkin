@@ -6,4 +6,20 @@
   <router-view></router-view>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+
+  a {
+    color: var(--link-foreground);
+    text-decoration: none;
+    
+    &:active {
+      color: var(--link-active-foreground);
+
+    }
+  }
+}
+
+</style>

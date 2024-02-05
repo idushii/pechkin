@@ -16,9 +16,11 @@ import { onMounted, ref } from "vue";
       </router-link>
     </template>
     <div class="title">События</div>
-    <div v-for=" item  in  events " :key="item.key">
-      {{ item.title }}
-    </div>
+    <template  v-for=" item  in  events " :key="item.key">
+      <router-link :to="{ name: 'select_event', params: { key: item.key } }">
+        {{ item.title }}
+      </router-link>
+    </template>
   </div>
 </template>
 
