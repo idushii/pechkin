@@ -14,6 +14,7 @@ import {
   vsCodeRadio,
   vsCodePanels,
   vsCodePanelTab,
+  allComponents,
 } from "@vscode/webview-ui-toolkit";
 
 import { createRouter, createWebHashHistory } from "vue-router";
@@ -38,19 +39,7 @@ const router = createRouter({
 });
 
 provideVSCodeDesignSystem().register(
-  vsCodeButton(),
-  vsCodeBadge(),
-  vsCodeCheckbox(),
-  vsCodeDropdown(),
-  vsCodeLink(),
-  vsCodeOption(),
-  vsCodeTag(),
-  vsCodeTextArea(),
-  vsCodeTextField(),
-  vsCodeRadio(),
-  vsCodePanels(),
-  vsCodePanelTab(),
-);
+  allComponents);
 
 
 const app = createApp(App);

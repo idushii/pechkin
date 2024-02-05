@@ -4,18 +4,48 @@
             <vscode-text-field :value="item.title" placeholder="Заголовок"></vscode-text-field>
             <vscode-text-field :value="item.name" placeholder="Наименование"></vscode-text-field>
         </div>
-        {{ item.payloads }}
+        <vscode-panels activeid="tab-1" aria-label="With Active Tab" @change="handleChangeTab">
+            <template v-for="item1 of item.payloads">
+                <vscode-panel-tab :id="`tab-${item1.name}`">{{ item1.title }}</vscode-panel-tab>
+                <vscode-panel-view :id="`view-${item1.name}`">
+                    <div class="wrap-tab-data">
+                        <vscode-text-area :value="getJsonStr(item1.payload)" resize="vertical" rows="10"></vscode-text-area>
+                        <div class="doc">
+                            <div class="doc-line title">
+                                <div>
+                                    Заголовок
+                                </div>
+                                <div>
+                                    Тип
+                                </div>
+                                <div>
+                                    Значение по умолчанию
+                                </div>
+                            </div>
+                            <div class="doc-line" v-for="item in item1.documentation" :key="item.key">
+                                <div>
+                                    {{ item.title }}
+                                </div>
+                                <div>
+                                    {{ item.type }}
+                                </div>
+                                <div>
+                                    {{ item.default }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <vscode-panels activeid="tab-4" aria-label="With Active Tab">
-        <vscode-panel-tab id="tab-1">PROBLEMS</vscode-panel-tab>
-        <vscode-panel-tab id="tab-2">OUTPUT</vscode-panel-tab>
-        <vscode-panel-tab id="tab-3">DEBUG CONSOLE</vscode-panel-tab>
-        <vscode-panel-tab id="tab-4">TERMINAL</vscode-panel-tab>
-        <vscode-panel-view id="view-1">Problems content.</vscode-panel-view>
-        <vscode-panel-view id="view-2">Output content.</vscode-panel-view>
-        <vscode-panel-view id="view-3">Debug content.</vscode-panel-view>
-        <vscode-panel-view id="view-4">Terminal content.</vscode-panel-view>
-      </vscode-panels>
+                </vscode-panel-view>
+            </template>>
+
+            <vscode-panel-tab id="tab-add">Добавить</vscode-panel-tab>
+            <vscode-panel-view id="view-add">
+
+
+
+            </vscode-panel-view>
+        </vscode-panels>
 
 
     </div>
@@ -23,7 +53,6 @@
 
 <script setup lang="ts">
 import { actions, events, type AppAction, getEmptyAction } from "@/data";
-import { provideVSCodeDesignSystem, vsCodePanelTab, vsCodePanels } from "@vscode/webview-ui-toolkit";
 import { onMounted, ref, watch, type Ref } from "vue";
 import { useRoute } from "vue-router";
 
@@ -43,10 +72,19 @@ function updAction() {
     item.value = actions.value.find((item) => item.key === route.params.key) || getEmptyAction();
 }
 
-provideVSCodeDesignSystem().register(
-  vsCodePanels(),
-  vsCodePanelTab(),
-);
+
+function handleChangeTab(e: any) {
+    console.log(e);
+}
+
+function getJsonStr(str: string) {
+    try {
+        return JSON.stringify(JSON.parse(str), null, 2)
+    }
+    catch (e) {
+        return str
+    }
+}
 
 </script>
 
@@ -55,5 +93,31 @@ provideVSCodeDesignSystem().register(
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem
+}
+
+.wrap-tab-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+
+    .doc {
+        padding-top: 5px;
+        .doc-line {
+            padding-top: 2px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+         
+            div {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            &.title {
+                font-weight: bold;
+            }
+        }
+    }
 }
 </style>
