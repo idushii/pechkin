@@ -15,9 +15,9 @@ body {
     color: var(--link-foreground);
     text-decoration: none;
     
-    &:active {
+    &:active, &.router-link-active {
       color: var(--link-active-foreground);
-
+      font-weight: bold;
     }
   }
 }

@@ -176,7 +176,97 @@ export interface AppPayload {
         },
       ],
       events: ['row_added'],
-    }
+    },
+     {
+      key: '4',
+      name: 'add_contract',
+      title: 'Добавить договор',
+      events: [],
+      payloads: [
+        {
+          payload: `{
+            "section_id": "c477f047-2665-",
+            "type_id": "68ef4ce2-",
+            "nomenclature_id": "d851cb79-8c43-",
+            "contractor": "OOO Проекты",
+            "contract_date": "23.02.2024",
+            "price": 100,
+            "volume": 1,
+            "amount": 99,
+            "file_ids": []
+        }`,
+        documentation: [
+          {
+            key: 'section_id',
+            title: 'ID раздела',
+            type: 'string',
+            default: 'xxx-xxx-xxx',
+            description: '',
+          },
+          {
+            key: 'type_id',
+            title: 'ID вида работ',
+            type: 'string',
+            default: 'xxx-xxx-xxx',
+            description: '',
+          },
+          {
+            key: 'nomenclature_id',
+            title: 'ID номенклатуры',
+            type: 'string',
+            default: 'xxx-xxx-xxx',
+            description: '',
+          },
+          {
+            key: 'contractor',
+            title: 'Контрагент',
+            type: 'string',
+            default: 'OOO Проекты',
+            description: '',
+          },
+          {
+            key: 'contract_date',
+            title: 'Дата договора',
+            type: 'string',
+            default: '23.02.2024',
+            description: '',
+          },
+          {
+            key: 'price',
+            title: 'Стоимость',
+            type: 'int',
+            default: '100',
+            description: '',
+          },
+          {
+            key: 'volume',
+            title: 'Объем',
+            type: 'int',
+            default: '1',
+            description: '',
+          },
+          {
+            key: 'amount',
+            title: 'Сумма',
+            type: 'int',
+            default: '99',
+            description: '',
+          },
+          {
+            key: 'file_ids',
+            title: 'Файлы',
+            type: 'string[]',
+            default: '[]',
+            description: '',
+          },
+        ],
+        events: [],
+        key: 'add_contract',
+        name: 'add_contract',
+        title: 'Добавить договор',
+        },
+      ]
+     }
   ]);
   
   export const events = ref<AppPayload[]>([

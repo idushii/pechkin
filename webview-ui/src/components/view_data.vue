@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="header">
-            <vscode-text-field :value="item.title" placeholder="Заголовок"></vscode-text-field>
             <vscode-text-field :value="item.name" placeholder="Наименование"></vscode-text-field>
+            <vscode-text-field :value="item.title" placeholder="Заголовок"></vscode-text-field>
         </div>
         <vscode-panels activeid="tab-1" aria-label="With Active Tab" @change="handleChangeTab">
             <template v-for="item1 of item.payloads">
@@ -10,7 +10,7 @@
                 <vscode-panel-view :id="`view-${item1.name}`">
                     <div class="wrap-tab-data">
                         <vscode-text-area class="wrap-payload" :value="getJsonStr(item1.payload)" resize="vertical"
-                            rows="10"></vscode-text-area>
+                            rows="30"></vscode-text-area>
                         <div class="doc">
                             <div class="doc-line title">
                                 <div>
@@ -34,6 +34,8 @@
                                         <vscode-option>string</vscode-option>
                                         <vscode-option>boolean</vscode-option>
                                         <vscode-option>bytes</vscode-option>
+                                        <vscode-option>string[]</vscode-option>
+                                        <vscode-option>int[]</vscode-option>
                                     </vscode-dropdown>
 
                                 </div>
@@ -109,7 +111,7 @@ function getJsonStr(str: string) {
     grid-gap: 1rem;
 
     .wrap-payload {
-        --type-ramp-base-line-height: 20px;
+        --type-ramp-base-line-height: 22px;
 
     }
 
@@ -120,7 +122,7 @@ function getJsonStr(str: string) {
             padding-top: 2px;
 
             display: grid;
-            grid-template-columns: 1fr 100px 1fr;
+            grid-template-columns: 120px 100px 1fr;
             grid-gap: 5px;
 
             div {
@@ -128,11 +130,9 @@ function getJsonStr(str: string) {
                 white-space: nowrap;
                 text-overflow: ellipsis;
 
-                // --size: 12px;
-
-                // --design-unit: 2;
-                // --type-ramp-base-font-size: 12px;
-                // --input-height: 21;
+                --design-unit: 2;
+                --type-ramp-base-font-size: 12px;
+                --input-height: 19;
 
             }
 
