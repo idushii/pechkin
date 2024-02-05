@@ -9,7 +9,8 @@
                 <vscode-panel-tab :id="`tab-${item1.name}`">{{ item1.title }}</vscode-panel-tab>
                 <vscode-panel-view :id="`view-${item1.name}`">
                     <div class="wrap-tab-data">
-                        <vscode-text-area :value="getJsonStr(item1.payload)" resize="vertical" rows="10"></vscode-text-area>
+                        <vscode-text-area class="wrap-payload" :value="getJsonStr(item1.payload)" resize="vertical"
+                            rows="10"></vscode-text-area>
                         <div class="doc">
                             <div class="doc-line title">
                                 <div>
@@ -24,13 +25,20 @@
                             </div>
                             <div class="doc-line" v-for="item in item1.documentation" :key="item.key">
                                 <div>
-                                    {{ item.title }}
+                                    <vscode-text-field class="doc-item" :value="item.title"></vscode-text-field>
                                 </div>
                                 <div>
-                                    {{ item.type }}
+                                    <vscode-dropdown class="doc-item" :value="item.type">
+                                        <vscode-option>int</vscode-option>
+                                        <vscode-option>float</vscode-option>
+                                        <vscode-option>string</vscode-option>
+                                        <vscode-option>boolean</vscode-option>
+                                        <vscode-option>bytes</vscode-option>
+                                    </vscode-dropdown>
+
                                 </div>
                                 <div>
-                                    {{ item.default }}
+                                    <vscode-text-field class="doc-item" :value="item.default"></vscode-text-field>
                                 </div>
                             </div>
                         </div>
@@ -100,18 +108,32 @@ function getJsonStr(str: string) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
 
+    .wrap-payload {
+        --type-ramp-base-line-height: 20px;
+
+    }
+
     .doc {
         padding-top: 5px;
+
         .doc-line {
             padding-top: 2px;
 
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-         
+            grid-template-columns: 1fr 100px 1fr;
+            grid-gap: 5px;
+
             div {
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
+
+                // --size: 12px;
+
+                // --design-unit: 2;
+                // --type-ramp-base-font-size: 12px;
+                // --input-height: 21;
+
             }
 
             &.title {
@@ -119,5 +141,10 @@ function getJsonStr(str: string) {
             }
         }
     }
+}
+
+vscode-dropdown {
+    position: absolute;
+    width: 100px;
 }
 </style>
