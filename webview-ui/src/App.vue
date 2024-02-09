@@ -10,6 +10,7 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
+  margin-top: 1rem;
 
   a {
     color: var(--link-foreground);

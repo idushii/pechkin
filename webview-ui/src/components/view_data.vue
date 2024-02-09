@@ -22,6 +22,9 @@
                                 <div>
                                     Значение по умолчанию
                                 </div>
+                                <div>
+                                    Nullable
+                                </div>
                             </div>
                             <div class="doc-line" v-for="item in item1.documentation" :key="item.key">
                                 <div>
@@ -41,6 +44,9 @@
                                 </div>
                                 <div>
                                     <vscode-text-field class="doc-item" :value="item.default"></vscode-text-field>
+                                </div>
+                                <div>
+                                    <vscode-checkbox class="doc-item" :checked="item.nullable"></vscode-checkbox> 
                                 </div>
                             </div>
                         </div>
@@ -116,13 +122,13 @@ function getJsonStr(str: string) {
     }
 
     .doc {
-        padding-top: 5px;
+        padding-top: 14px;
 
         .doc-line {
             padding-top: 2px;
 
             display: grid;
-            grid-template-columns: 120px 100px 1fr;
+            grid-template-columns: 120px 100px 1fr auto;
             grid-gap: 5px;
 
             div {
@@ -132,7 +138,7 @@ function getJsonStr(str: string) {
 
                 --design-unit: 2;
                 --type-ramp-base-font-size: 12px;
-                --input-height: 19;
+                --input-height: 18;
 
             }
 

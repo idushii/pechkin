@@ -11,6 +11,7 @@ export interface AppPayload {
       type: string,
       default: string,
       description: string,
+      nullable: boolean,
     }[],
     events: string[]
   }
@@ -51,6 +52,7 @@ export interface AppPayload {
               type: 'string',
               default: 'value',
               description: '',
+              nullable: false,
             }
           ],
           events: ['connected'],
@@ -75,6 +77,7 @@ export interface AppPayload {
               type: 'string',
               default: 'value',
               description: '',
+              nullable: false,
             }
           ],
       events: ["disconnected"],
@@ -98,6 +101,7 @@ export interface AppPayload {
             type: 'string',
             default: 'xxx-xxx-xxx',
             description: '',
+            nullable: false,
           },
           {
             key: 'title',
@@ -105,6 +109,7 @@ export interface AppPayload {
             type: 'string',
             default: 'Заголовок',
             description: '',
+            nullable: false,
           }
         ],
       events: ['row_added'],
@@ -121,6 +126,7 @@ export interface AppPayload {
             type: 'string',
             default: 'xxx-xxx-xxx',
             description: '',
+            nullable: false,
           },
           {
             key: 'section_id',
@@ -128,6 +134,7 @@ export interface AppPayload {
             type: 'string',
             default: 'xxx-xxx-xxx',
             description: '',
+            nullable: false,
           },
           {
             key: 'title',
@@ -135,6 +142,7 @@ export interface AppPayload {
             type: 'string',
             default: 'Заголовок',
             description: '',
+            nullable: false,
           }
         ],
       events: ['row_added'],
@@ -150,6 +158,7 @@ export interface AppPayload {
             type: 'string',
             default: 'xxx-xxx-xxx',
             description: '',
+            nullable: false,
           },
           {
             key: 'section_id',
@@ -157,6 +166,7 @@ export interface AppPayload {
             type: 'string',
             default: 'xxx-xxx-xxx',
             description: '',
+            nullable: false,
           },
           {
             key: 'work_id',
@@ -164,6 +174,7 @@ export interface AppPayload {
             type: 'string',
             default: 'xxx-xxx-xxx',
             description: '',
+            nullable: false,
           },
           {
             key: 'title',
@@ -171,6 +182,7 @@ export interface AppPayload {
             type: 'string',
             default: 'Заголовок',
             description: '',
+            nullable: false,
           }],
       events: ['row_added'],
         },
@@ -202,6 +214,7 @@ export interface AppPayload {
             type: 'string',
             default: 'xxx-xxx-xxx',
             description: '',
+            nullable: false,
           },
           {
             key: 'type_id',
@@ -209,6 +222,7 @@ export interface AppPayload {
             type: 'string',
             default: 'xxx-xxx-xxx',
             description: '',
+            nullable: false,
           },
           {
             key: 'nomenclature_id',
@@ -216,6 +230,7 @@ export interface AppPayload {
             type: 'string',
             default: 'xxx-xxx-xxx',
             description: '',
+            nullable: false,
           },
           {
             key: 'contractor',
@@ -223,6 +238,7 @@ export interface AppPayload {
             type: 'string',
             default: 'OOO Проекты',
             description: '',
+            nullable: false,
           },
           {
             key: 'contract_date',
@@ -230,6 +246,7 @@ export interface AppPayload {
             type: 'string',
             default: '23.02.2024',
             description: '',
+            nullable: false,
           },
           {
             key: 'price',
@@ -237,6 +254,7 @@ export interface AppPayload {
             type: 'int',
             default: '100',
             description: '',
+            nullable: false,
           },
           {
             key: 'volume',
@@ -244,6 +262,7 @@ export interface AppPayload {
             type: 'int',
             default: '1',
             description: '',
+            nullable: false,
           },
           {
             key: 'amount',
@@ -251,6 +270,7 @@ export interface AppPayload {
             type: 'int',
             default: '99',
             description: '',
+            nullable: false,
           },
           {
             key: 'file_ids',
@@ -258,6 +278,7 @@ export interface AppPayload {
             type: 'string[]',
             default: '[]',
             description: '',
+            nullable: false,
           },
         ],
         events: [],
@@ -298,6 +319,7 @@ export interface AppPayload {
           type: 'string',
           default: 'xxx-xxx-xxx',
           description: '',
+          nullable: false,
         },
         {
           key: 'section_id',
@@ -305,6 +327,7 @@ export interface AppPayload {
           type: 'string',
           default: 'xxx-xxx-xxx',
           description: '',
+          nullable: false,
         },
         {
           key: 'work_id',
@@ -312,6 +335,7 @@ export interface AppPayload {
           type: 'string',
           default: 'xxx-xxx-xxx',
           description: '',
+          nullable: false,
         },
         {
           key: 'title',
@@ -319,6 +343,7 @@ export interface AppPayload {
           type: 'string',
           default: 'Заголовок',
           description: '',
+          nullable: false,
         }
       ],
       events: [],
