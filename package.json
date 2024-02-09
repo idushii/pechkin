@@ -8,6 +8,14 @@
   },
   "main": "./out/extension.js",
   "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "nodeDependencies",
+          "name": "Node Dependencies"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "pechkin.showHelloWorld",
